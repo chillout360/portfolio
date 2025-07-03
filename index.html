@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Paul Chilana – Walking Deck</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="hero">
+    <img src="media/hero.jpg" alt="Paul Chilana presenting to team" class="hero-img" />
+    <div class="overlay-text">
+      <h1>Paul Chilana</h1>
+      <p>Servant Leader in Product Management & Technology Innovation</p>
+      <button id="themeToggle" aria-label="Toggle dark mode">🌙</button>
+    </div>
+  </header>
+
+  <section class="profile">
+    <h2>About Me</h2>
+    <div class="flex-wrap">
+      <img src="media/profile.jpg" alt="Paul Chilana portrait" class="profile-img" />
+      <div>
+        <p>27+ years in Product & Technology, delivering impactful digital solutions. Expertise in mobile, leadership, and transformation strategy.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="impact">
+    <h2>Transformation Highlights</h2>
+    <img src="media/transformation.jpg" alt="Transformation success" class="full-img" />
+  </section>
+
+  <section class="team">
+    <h2>Team Building</h2>
+    <img src="media/team.jpg" alt="Team presentation" class="full-img" />
+  </section>
+
+  <section class="contact">
+    <img src="media/lets-talk.jpg" alt="Let's talk" class="full-img" />
+  </section>
+
+  <script>
+    const toggleButton = document.getElementById('themeToggle');
+    const htmlEl = document.documentElement;
+
+    const setTheme = (theme) => {
+      htmlEl.setAttribute('data-theme', theme);
+      localStorage.setItem('theme', theme);
+      toggleButton.textContent = theme === 'dark' ? '☀️' : '🌙';
+    };
+
+    toggleButton.addEventListener('click', () => {
+      const currentTheme = htmlEl.getAttribute('data-theme');
+      const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+      setTheme(newTheme);
+    });
+
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    setTheme(savedTheme);
+  </script>
+</body>
+</html>
